@@ -4,7 +4,7 @@ import Characters from "./components/Character";
 
 function App() {
   return (
-    <div className={s.container}>
+    <div>
       < Characters/>
     </div>
   );

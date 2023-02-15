@@ -16,16 +16,20 @@ function Characters() {
   }, []);
 
   return (
-    <div className={s.characterContainer}>
-      <h2>Characters</h2>
-      <ul>
+    <div className="container">
+      <h1>Characters</h1>
+      <ul className={s.characterContainer}>
         {characters.map(character => (
           <li key={character.id}>
-            <h3>{character.name}</h3>
             <img src={character.image} alt={character.name} />
+            <h3>{character.name}</h3>
+            <div className={s.info}>
             <p>Gender: {character.gender}</p>
             <p>Status: {character.status}</p>
-          </li>
+            <p>Ubication: {character.location.name}</p>
+          
+            </div>
+           </li>
         ))}
       </ul>
     </div>
