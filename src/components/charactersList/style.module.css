@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 100px;
+    
+  }
+  
+  .characterList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding-left: 100px;
+    padding-right: 100px;
+    list-style: none;
+    gap:30px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .characterList {
+      justify-content: space-between;
+    }
+  }
+  

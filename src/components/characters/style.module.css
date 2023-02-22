@@ -1,0 +1,53 @@
+
+.characterContainer li {
+  width: 300px;
+  margin: 20px 0;
+  box-shadow: 5px 5px 20px black;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: #ff00fb;
+}
+
+h1{
+  margin: 10px;
+  font-size: 70px;
+}
+h3{
+  font-weight: bold;
+  font-size: 29px;
+}
+p{
+  font-size: 20px;
+  margin: 20px;
+}
+.info{
+  height: 200px;
+  width: 300px;
+  box-sizing: border-box;
+  position: absolute;
+  background: rgb(27, 27, 27, .5);
+  color: wheat;
+  bottom: 20px;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1; 
+  
+  font-weight: bold;
+}
+.characterContainer li:hover{
+  cursor: pointer;
+  scale: 1.1;
+  transform: rotate(7deg);
+}
+.characterContainer li:hover .info {
+  top:100px;
+  visibility: visible;
+  opacity: 1;
+  
+}
+
+.characterContainer li:hover p{
+  opacity: 1;
+  visibility: visible;
+}

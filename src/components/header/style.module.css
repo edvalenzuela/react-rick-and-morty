@@ -1,0 +1,24 @@
+.header {
+  background-color: #111111e3;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  position:fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.header ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  
+}
+.header a{
+  text-decoration: none;
+  color: rgba(2, 255, 2, 0.831);
+  font-size: x-large;
+}
