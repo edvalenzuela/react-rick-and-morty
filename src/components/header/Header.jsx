@@ -1,7 +1,7 @@
 import SearchBar from "../searchBar/SearchBar";
 import s from "./style.module.css"
 
-export function Header({ handleSearch }) {
+function Header({ handleSearch }) {
     return (
       <header className={s.header}>
         
@@ -22,4 +22,4 @@ export function Header({ handleSearch }) {
       </header>
     );
   }
-  
+  export default Header;
