@@ -3,7 +3,7 @@ import axios from "axios";
 import Character from "../characters/Character";
 import s from "./style.module.css";
 
-function CharacterList({ characters, filteredTerm }) {
+function CharacterList({ characters, filteredTerm, searchTerm }) {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -39,9 +39,12 @@ function CharacterList({ characters, filteredTerm }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
+  const renderMsg = (msg = '') => <h2>Usted busco por : {msg}</h2>
+
   return (
     <div className={s.container} ref={wrapperRef}>
       <h1>Characters</h1>
+      { searchTerm && renderMsg(searchTerm)}
       <ul className={s.characterList}>
         {filteredTerm
           ? filteredCharacters.map((character) => (

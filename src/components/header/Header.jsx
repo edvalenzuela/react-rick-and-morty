@@ -1,7 +1,7 @@
 import SearchBar from "../searchBar/SearchBar";
 import s from "./style.module.css"
 
-function Header({ handleSearch }) {
+function Header({ searchTerm, setSearchTerm }) {
     return (
       <header className={s.header}>
         
@@ -18,7 +18,7 @@ function Header({ handleSearch }) {
             </li>
           </ul>
         </nav>
-        <SearchBar handleSearch={handleSearch} />
+        <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
       </header>
     );
   }

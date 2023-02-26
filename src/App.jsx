@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"; // Importamos los hooks que utilizaremos en el componente
 import axios from "axios"; // Importamos axios para realizar las peticiones a la API
-import SearchBar from "./components/searchBar/SearchBar"; // Importamos el componente SearchBar
 import CharacterList from "./components/charactersList/CharacterList"; // Importamos el componente CharacterList
 import s from "./style.module.css"; // Importamos los estilos del componente
 import Header  from "./components/header/Header"; // Importamos el componente Header
@@ -37,14 +36,8 @@ function App() {
     playing ? audio.loop = true && audio.play() : audio.pause(); // Si el audio se está reproduciendo, lo reproducimos en loop. Si no, lo pausamos.
   }, [playing, audio]); // Este efecto se ejecutará cada vez que el valor de las variables playing o audio cambien
 
-  const handleSearch = (searchTerm) => { // Función que se encarga de actualizar el estado de searchTerm cada vez que el usuario realiza una búsqueda
-    setSearchTerm(searchTerm);
-  };
-
 // Filtra la lista de personajes para mostrar solo aquellos que contengan el término de búsqueda (ignorando mayúsculas/minúsculas)
-const filteredCharacters = characters.filter((character) =>
-character.name.toLowerCase().includes(searchTerm.toLowerCase())
-);
+const filteredCharacters = characters.filter(character => character.name.toLowerCase().includes(searchTerm));
 
 // Carga más personajes cuando el usuario llega al final del contenedor
 const handleScroll = () => {
@@ -72,15 +65,13 @@ return (
       {playing ? "Pause" : "Play"}
     </button >
     {/* Renderiza el componente Header */}
-    <Header />
-    {/* Renderiza el componente SearchBar y pasa la función handleSearch como prop */}
-    <SearchBar handleSearch={handleSearch} />
+    <Header setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
     
     {characters.length === 0 && loading && (
       <div className={s.loading-text}>Cargando personajes...</div>
     )}
     {error && !loading && <div>Error al cargar personajes</div>}
-    <CharacterList characters={filteredCharacters} filteredTerm={filteredTerm} />
+    <CharacterList characters={filteredCharacters} filteredTerm={filteredTerm} searchTerm={searchTerm} />
     {loading && characters.length > 0 && <div>Cargando más personajes...</div>}
   </div>
 );
